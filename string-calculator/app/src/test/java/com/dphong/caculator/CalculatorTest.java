@@ -10,7 +10,7 @@ class CalculatorTest {
 
     @BeforeEach
     void setUp() {
-        calculator = new Calculator();
+        calculator = new Calculator(new StringParser());
     }
 
     @Test
@@ -38,5 +38,14 @@ class CalculatorTest {
         assertEquals(10, calculator.calculate("5*2"));
         assertEquals(5, calculator.calculate("5*1"));
         assertEquals(20, calculator.calculate("5*4"));
+    }
+
+    @Test
+    void devide() {
+        assertEquals(1, calculator.calculate("1/1"));
+        assertEquals(1, calculator.calculate("3/2"));
+        assertEquals(2, calculator.calculate("5/2"));
+        assertEquals(5, calculator.calculate("5/1"));
+        assertEquals(3, calculator.calculate("6/2"));
     }
 }
